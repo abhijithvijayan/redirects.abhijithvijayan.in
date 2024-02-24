@@ -1,10 +1,14 @@
 # redirects
 
-> https://r.abhijithvijayan.in
+Root host aliases:
 
-> https://redirects.abhijithvijayan.in
+1. https://r.abhijithvijayan.in
+2. https://redirects.abhijithvijayan.in
+3. https://redirects-abhijithvijayan-in.pages.dev
 
-> https://redirects-abhijithvijayan-in.pages.dev
+### _redirects configuration
+
+example: https://r.abhijithvijayan.in/example -> redirects to -> https://example.com  
 
 ```
 path                 redirect url                  status code(optional)
