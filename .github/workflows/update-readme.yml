@@ -1,0 +1,67 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '_redirects'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate redirects table
+        run: |
+          # Read _redirects and generate markdown table
+          TABLE="| Path | Redirect URL | Status |\n|------|--------------|--------|\n"
+
+          while IFS= read -r line || [[ -n "$line" ]]; do
+            # Skip empty lines and catch-all rule
+            [[ -z "$line" || "$line" =~ ^/\* ]] && continue
+
+            # Parse the line (path, url, status)
+            path=$(echo "$line" | awk '{print $1}')
+            url=$(echo "$line" | awk '{print $2}')
+            status=$(echo "$line" | awk '{print $3}')
+
+            # Skip if no valid path
+            [[ -z "$path" || ! "$path" =~ ^/ ]] && continue
+
+            TABLE+="| $path | $url | $status |\n"
+          done < _redirects
+
+          # Save table to temp file
+          echo -e "$TABLE" > /tmp/redirects_table.md
+
+      - name: Update README
+        run: |
+          # Check if markers exist, if not add them
+          if ! grep -q "<!-- REDIRECTS_TABLE_START -->" README.md; then
+            echo -e "\n<!-- REDIRECTS_TABLE_START -->\n<!-- REDIRECTS_TABLE_END -->" >> README.md
+          fi
+
+          # Replace content between markers
+          TABLE=$(cat /tmp/redirects_table.md)
+          awk -v table="$TABLE" '
+            /<!-- REDIRECTS_TABLE_START -->/ {
+              print
+              print table
+              skip=1
+              next
+            }
+            /<!-- REDIRECTS_TABLE_END -->/ {
+              skip=0
+            }
+            !skip {print}
+          ' README.md > README.tmp && mv README.tmp README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --quiet --staged || git commit -m "docs: update redirects table"
+          git push
