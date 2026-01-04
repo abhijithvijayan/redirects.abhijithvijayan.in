@@ -8,4 +8,22 @@ Root host aliases:
 ### Redirects
 
 <!-- REDIRECTS_TABLE_START -->
+| Path | Redirect URL | Status |
+|------|--------------|--------|
+| /linkedin | https://www.linkedin.com/in/iamabhijithvijayan | 308 |
+| /github | https://github.com/abhijithvijayan | 308 |
+| /medium | https://medium.com/@abhijithvijayan | 308 |
+| /twitter | https://twitter.com/_abhijithv | 308 |
+| /telegram | https://t.me/abhijithvijayan | 308 |
+| /paypal | https://www.paypal.me/iamabhijithvijayan | 308 |
+| /buymeacoffee | https://www.buymeacoffee.com/abhijithvijayan | 308 |
+| /patreon | https://www.patreon.com/abhijithvijayan | 308 |
+| /opencollective | https://opencollective.com/abhijithvijayan | 308 |
+| /githubsponsors | https://github.com/sponsors/abhijithvijayan | 308 |
+| /google | https://www.google.com/search?q=abhijith+vijayan+web+engineer | 308 |
+| /donate | https://github.com/sponsors/abhijithvijayan | 308 |
+| /status | https://stats.uptimerobot.com/pzxzYf90DR | 308 |
+| /resume | https://drive.google.com/file/d/1RGvPIJu0FAipuHl7qfe3FeJPqQjIsMMz/preview?v=1 | 308 |
+| /devstudio | https://devstudio.digital | 308 |
+| /example | https://example.com | 308 |
 <!-- REDIRECTS_TABLE_END -->
