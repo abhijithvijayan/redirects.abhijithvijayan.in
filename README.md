@@ -25,5 +25,6 @@ Root host aliases:
 | /status | https://stats.uptimerobot.com/pzxzYf90DR | 308 |
 | /resume | https://drive.google.com/file/d/1RGvPIJu0FAipuHl7qfe3FeJPqQjIsMMz/preview?v=1 | 308 |
 | /devstudio | https://devstudio.digital | 308 |
+| /reviews/3W6Dgm | https://maps.app.goo.gl/Ab5fxERrFwWpd1Y89?g_st=ic | 308 |
 | /example | https://example.com | 308 |
 <!-- REDIRECTS_TABLE_END -->
